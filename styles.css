@@ -43,3 +43,7 @@ button {
     align-items: center;
     justify-content: center;
 }
+
+#zero {
+    width: 138px;
+}
