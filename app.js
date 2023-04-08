@@ -26,12 +26,12 @@ function display(num){
     document.querySelector(".display").textContent = `${num}`;
 }
 
-let lastAnswer = 0;
-let inputNumber = "";
-let operator = "";
-let dotPressed = false;
-let equalsed = false;
-let operated = false;
+let lastAnswer = 0; //Stores the last answer
+let inputNumber = ""; //Stores the inputted number to work on the last answer
+let operator = ""; //Stores the operator
+let dotPressed = false; //Tracks if a dot has been pressed
+let equalsed = false; //Tracks if the user just pressed equals, changes some logic
+let operated = false; //Tracks if the user just used an operator, changes some logic
 
 
 const operatorButton = document.querySelectorAll(".operator");
