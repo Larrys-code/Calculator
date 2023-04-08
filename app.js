@@ -123,3 +123,24 @@ document.getElementById("percentage").addEventListener("click", function(){
     dotPressed = false;
     equalsed = true;
 });
+
+document.getElementById("DEL").addEventListener("click", function(){
+    if (document.querySelector(".display").textContent===inputNumber){
+        const workingArray = inputNumber.split("");
+        lastChar = workingArray.length - 1;
+        if(workingArray[lastChar]==="."){dotPressed = false;};
+        workingArray.pop();
+        inputNumber = workingArray.join("");
+        if(inputNumber===""){inputNumber=0};
+        display(inputNumber);
+    }else{
+        lastAnswer = 0;
+        inputNumber = "";
+        operator = "";
+        dotPressed = false;
+        equalsed = false;
+        operated = false;
+        display(0);
+        activeOperator(this);   
+    }
+});
