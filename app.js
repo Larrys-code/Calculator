@@ -17,7 +17,7 @@ function calculate(ans, op, num){
         case "multiply":
             result = +ans * +num;
     }
-    if (typeof(result) !== "number" || result === Infinity){return result = "ERROR";};
+    if (typeof(result) !== "number" || result === Infinity || result === "NaN"){return result = "ERROR";};
     result = +(Math.round(result + "e+2")  + "e-2")
     return result;
 }
@@ -30,20 +30,24 @@ let lastAnswer = 0;
 let inputNumber = "";
 let operator = "";
 let dotPressed = false;
-let resetable = false;
+let equalsed = false;
+let operated = false;
+
 
 const operatorButton = document.querySelectorAll(".operator");
 operatorButton.forEach(button => {
     button.addEventListener("click", function(){
-        if (resetable===false){
+        if (equalsed===false && operated===false){
             let result = calculate(lastAnswer, operator, inputNumber);
             display(result);
+            if(result ==="ERROR"){result = "0";};
             lastAnswer = result;
         };
         operator = this.id;
         dotPressed = false;
         inputNumber = "";
-        resetable = false;
+        equalsed = false;
+        operated = true;
         //add pressed style toggle logic here
     });
 });
@@ -52,7 +56,7 @@ const numberButton = document.querySelectorAll(".number");
 numberButton.forEach(button => {
     button.addEventListener("click", function(){
         buttonNumber = this.textContent
-        if (resetable===true && operator===""){
+        if (equalsed===true && operator===""){
             lastAnswer = 0;
         };
         if (this.id === "dot" && dotPressed === true){
@@ -65,7 +69,8 @@ numberButton.forEach(button => {
             };
             dotPressed = true;
         };
-        resetable = false;
+        equalsed = false;
+        operated = false;
         inputNumber = inputNumber.concat(buttonNumber);
         display(inputNumber);
     });
@@ -74,9 +79,11 @@ numberButton.forEach(button => {
 document.getElementById("equals").addEventListener("click", function(){
     let result = calculate(lastAnswer, operator, inputNumber);
     display(result);
+    if(result ==="ERROR"){result = "0";};
     lastAnswer = result;
     dotPressed = false;
     operator = "";
     inputNumber = "";
-    resetable = true;    
+    equalsed = true;
+    operated = false;    
 });
