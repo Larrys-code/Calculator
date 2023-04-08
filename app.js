@@ -144,3 +144,75 @@ document.getElementById("DEL").addEventListener("click", function(){
         activeOperator(this);   
     }
 });
+
+window.addEventListener("keydown", function(key){
+    let button = "";
+    switch (key.key){
+        case "1":
+            button = document.getElementById("one");            
+            break;
+        case "2":
+            button = document.getElementById("two");            
+            break;
+        case "3":
+            button = document.getElementById("three");            
+            break;
+        case "4":
+            button = document.getElementById("four");           
+            break;
+        case "5":
+            button = document.getElementById("five");           
+            break;
+        case "6":
+            button = document.getElementById("six");           
+            break;
+        case "7":
+            button = document.getElementById("seven");           
+            break;
+        case "8":
+            button = document.getElementById("eight");            
+            break;
+        case "9":
+            button = document.getElementById("nine");            
+            break;
+        case "0":
+            button = document.getElementById("zero");            
+            break;
+        case ".":
+            button = document.getElementById("dot");           
+            break;
+        case "+":
+            button = document.getElementById("plus");            
+            break;
+        case "-":
+            button = document.getElementById("minus");           
+            break;
+        case "/":
+            button = document.getElementById("divide");           
+            break;
+        case "*":
+            button = document.getElementById("multiply");            
+            break;
+        case "x":
+            button = document.getElementById("multiply");           
+            break;
+        case "=":
+            button = document.getElementById("equals");            
+            break;
+        case "Enter":
+            button = document.getElementById("equals");            
+            break;
+        case "Backspace":
+            button = document.getElementById("DEL");           
+            break;
+        case " ":
+            button = document.getElementById("AC");            
+            break;
+        case "%":
+            button = document.getElementById("percentage");
+            break;
+        default:
+            return;        
+    }
+    button.click();
+})
