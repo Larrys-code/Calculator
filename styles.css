@@ -60,6 +60,12 @@ button {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #1d173a59;
+    border-color: #2a234bad;
 }
 
 button.operator,
@@ -71,10 +77,13 @@ button#equals {
     transition: 0.4s;
 }
 
-button.operator.operatorActive {
+button.operator.operatorActive,
+button.operator:hover,
+button#equals:hover {
     background-color: #cddbfb;
     color: #300cf9;
     border-color: #2f18af;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -82,6 +91,11 @@ button.special {
     color: #261f4a;
     background-color: #b9b5e37a;
     border-color: #161326ad;
+}
+
+button.special:hover {
+    background-color: #c9c5fa9c;
+    border-color: #221d3dad;
 }
 
 #zero {
