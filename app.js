@@ -18,7 +18,7 @@ function calculate(ans, op, num){
             result = +ans * +num;
     }
     if (typeof(result) !== "number" || result === Infinity || result === "NaN"){return result = "ERROR";};
-    result = +(Math.round(result + "e+2")  + "e-2")
+    result = +(Math.round(result + "e+5")  + "e-5")
     return result;
 };
 
@@ -108,4 +108,18 @@ document.getElementById("AC").addEventListener("click", function(){
     operated = false;
     display(0);
     activeOperator(this);    
+});
+
+document.getElementById("percentage").addEventListener("click", function(){
+    result = calculate(document.querySelector(".display").textContent, "divide", "100");
+    if(result ==="ERROR"){result = "0";};
+    lastAnswer = result;
+
+    display(result);
+    activeOperator(this);
+    inputNumber = "";
+    operator = "";
+    operated = false;
+    dotPressed = false;
+    equalsed = true;
 });
