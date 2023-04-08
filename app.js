@@ -26,6 +26,11 @@ function calculate(ans, op, num){
 };
 
 function display(num){
+    if (num.toString().length > 22){
+        num = "OVERFLOW"
+        inputNumber = "";
+        dotPressed = false;
+    };
     document.querySelector(".display").textContent = `${num}`;
 };
 
