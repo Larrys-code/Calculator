@@ -17,8 +17,9 @@ function calculate(ans, op, num){
         case "multiply":
             result = +ans * +num;
     }
-    if (typeof(result) !== "number" || result === Infinity || result === "NaN"){return result = "ERROR";};
-    result = +(Math.round(result + "e+5")  + "e-5")
+    
+    result = +(Math.round(result + "e+5")  + "e-5");
+    if (typeof(result) !== "number" || result === Infinity || isNaN(result)){return result = "ERROR";};
     return result;
 };
 
