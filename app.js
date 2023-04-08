@@ -20,11 +20,20 @@ function calculate(ans, op, num){
     if (typeof(result) !== "number" || result === Infinity || result === "NaN"){return result = "ERROR";};
     result = +(Math.round(result + "e+2")  + "e-2")
     return result;
-}
+};
 
 function display(num){
     document.querySelector(".display").textContent = `${num}`;
-}
+};
+
+function activeOperator(element){
+    operatorButton.forEach(button => {
+        button.classList.remove("operatorActive");
+    });
+    if (element.classList.contains("operator")){
+        element.classList.add("operatorActive");
+    };
+};
 
 let lastAnswer = 0; //Stores the last answer
 let inputNumber = ""; //Stores the inputted number to work on the last answer
@@ -43,6 +52,7 @@ operatorButton.forEach(button => {
             if(result ==="ERROR"){result = "0";};
             lastAnswer = result;
         };
+        activeOperator(this);    
         operator = this.id;
         dotPressed = false;
         inputNumber = "";
@@ -79,11 +89,23 @@ numberButton.forEach(button => {
 document.getElementById("equals").addEventListener("click", function(){
     let result = calculate(lastAnswer, operator, inputNumber);
     display(result);
+    activeOperator(this);    
     if(result ==="ERROR"){result = "0";};
     lastAnswer = result;
     dotPressed = false;
     operator = "";
     inputNumber = "";
     equalsed = true;
-    operated = false;    
+    operated = false;
+});
+
+document.getElementById("AC").addEventListener("click", function(){
+    lastAnswer = 0;
+    inputNumber = "";
+    operator = "";
+    dotPressed = false;
+    equalsed = false;
+    operated = false;
+    display(0);
+    activeOperator(this);    
 });

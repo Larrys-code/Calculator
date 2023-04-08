@@ -68,7 +68,15 @@ button#equals {
     color: #cddbfb;
     background-color: #2a0add59;
     border-color: #2e274ead;
+    transition: 0.4s;
 }
+
+button.operator.operatorActive {
+    background-color: #cddbfb;
+    color: #300cf9;
+    border-color: #2f18af;
+}
+
 
 button.special {
     color: #261f4a;
